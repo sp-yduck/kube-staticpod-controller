@@ -47,9 +47,19 @@ type StaticPodReconciler struct {
 // For more details, check Reconcile and its Result here:
 // - https://pkg.go.dev/sigs.k8s.io/controller-runtime@v0.12.1/pkg/reconcile
 func (r *StaticPodReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.Result, error) {
-	_ = log.FromContext(ctx)
+	log := log.FromContext(ctx)
 
-	// TODO(user): your logic here
+	var staticPod staticv1alpha1.StaticPod
+	if err := r.Get(ctx, req.NamespacedName, &staticPod); err != nil {
+		log.Error(err, "unable ro fetch StaticPod")
+		return ctrl.Result{}, client.IgnoreNotFound(err)
+	}
+
+	var childStaticPods staticv1alpha1.StaticPodList
+	if err := r.List(ctx, &childStaticPods, client.InNamespace(req.Namespace), &client.ListOptions{}); err != nil {
+		log.Error(err, "unable to list StaticPods")
+		return ctrl.Result{}, err
+	}
 
 	return ctrl.Result{}, nil
 }
