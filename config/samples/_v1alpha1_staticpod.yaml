@@ -1,6 +1,16 @@
 apiVersion: sp-yduck.com/v1alpha1
 kind: StaticPod
 metadata:
-  name: staticpod-sample
+  name: staticpod-nginx
 spec:
-  # TODO(user): Add fields here
+  template: 
+    metadata:
+      name: static-nginx
+    spec:
+      containers:
+        - name: nginx
+          image: nginx
+          ports:
+            - name: web
+              containerPort: 80
+              protocol: TCP
