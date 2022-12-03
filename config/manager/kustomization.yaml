@@ -13,4 +13,4 @@ kind: Kustomization
 images:
 - name: controller
   newName: kube-staticpod-controller
-  newTag: 20221203-1535
+  newTag: 20221203-1706

@@ -29,7 +29,7 @@ type StaticPodSpec struct {
 	// INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
 	// Important: Run "make" to regenerate code after modifying this file
 
-	Template v1.Pod `json:"template"`
+	Template v1.PodTemplateSpec `json:"template,omitempty"`
 }
 
 // StaticPodStatus defines the observed state of StaticPod

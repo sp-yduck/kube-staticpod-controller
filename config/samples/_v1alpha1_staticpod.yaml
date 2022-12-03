@@ -2,10 +2,9 @@ apiVersion: sp-yduck.com/v1alpha1
 kind: StaticPod
 metadata:
   name: staticpod-nginx
+  namespace: staticpod-system
 spec:
   template: 
-    metadata:
-      name: static-nginx
     spec:
       containers:
         - name: nginx
