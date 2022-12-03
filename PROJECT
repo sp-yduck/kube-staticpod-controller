@@ -1,0 +1,6 @@
+domain: sp-yduck.com
+layout:
+- go.kubebuilder.io/v3
+projectName: kube-staticpod-controller
+repo: github.com/sp-yduck/kube-staticpod-controller
+version: "3"
