@@ -1,0 +1,24 @@
+# permissions for end users to edit staticpods.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: staticpod-editor-role
+rules:
+- apiGroups:
+  - sp-yduck.com
+  resources:
+  - staticpods
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - sp-yduck.com
+  resources:
+  - staticpods/status
+  verbs:
+  - get

@@ -1,0 +1,6 @@
+apiVersion: sp-yduck.com/v1alpha1
+kind: StaticPod
+metadata:
+  name: staticpod-sample
+spec:
+  # TODO(user): Add fields here

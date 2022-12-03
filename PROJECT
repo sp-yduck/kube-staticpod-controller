@@ -3,4 +3,13 @@ layout:
 - go.kubebuilder.io/v3
 projectName: kube-staticpod-controller
 repo: github.com/sp-yduck/kube-staticpod-controller
+resources:
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: sp-yduck.com
+  kind: StaticPod
+  path: github.com/sp-yduck/kube-staticpod-controller/api/v1alpha1
+  version: v1alpha1
 version: "3"
