@@ -33,7 +33,10 @@ type StaticPodSpec struct {
 }
 
 // StaticPodStatus defines the observed state of StaticPod
-type StaticPodStatus v1.PodStatus
+type StaticPodStatus struct {
+	Node      string `json:"node"`
+	Condition string `json:"condition"`
+}
 
 //+kubebuilder:object:root=true
 //+kubebuilder:subresource:status
