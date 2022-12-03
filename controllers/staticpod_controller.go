@@ -89,7 +89,7 @@ func (r *StaticPodReconciler) reconcilePod(ctx context.Context, staticPod static
 	pod.SetName(staticPod.Name)
 	op, err := ctrl.CreateOrUpdate(ctx, r.Client, pod, func() error {
 		pod.Spec = staticPod.Spec.Template.Spec
-		return nil
+		return ctrl.SetControllerReference(&staticPod, pod, r.Scheme)
 	})
 	if err != nil {
 		logger.Error(err, "unable to create or update pod")
